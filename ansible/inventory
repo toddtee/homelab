@@ -1,0 +1,16 @@
+---
+all:
+  hosts:
+    the_server:
+      ansible_host: 192.168.1.100
+      ansible_python_interpreter: /usr/bin/python3.10
+  children:
+    arch_linux:
+      hosts:
+        the_server:
+    docker:
+      hosts:
+        the_server:
+    media:
+      hosts:
+        the_server:

@@ -1,0 +1,6 @@
+---
+- name: Install Docker
+  community.general.pacman:
+    name: docker
+    state: latest
+  tags: arch_docker

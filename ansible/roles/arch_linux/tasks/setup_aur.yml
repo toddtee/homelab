@@ -1,0 +1,17 @@
+---
+- name: Ensure the {{ aur_user }} user
+  ansible.builtin.user:
+    name: "{{ aur_user }}"
+    create_home: yes
+    group: wheel
+    uid: 800
+  tags: [aur]
+
+- name: Allow the {{ aur_user }} user to run `sudo pacman` without a password
+  ansible.builtin.lineinfile:
+    path: /etc/sudoers.d/11-install-{{ aur_user }}
+    line: "{{ aur_user}} ALL=(ALL) NOPASSWD: /usr/bin/pacman"
+    create: yes
+    validate: 'visudo -cf %s'
+  tags: [aur]
+

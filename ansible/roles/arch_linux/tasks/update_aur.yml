@@ -1,0 +1,8 @@
+---
+- name: Upgrade the system using yay, only act on AUR packages.
+  kewlfft.aur.aur:
+    upgrade: yes
+    use: yay
+    aur_only: yes
+  tags: [aur]
+    

@@ -1,0 +1,27 @@
+---
+- name: Ensure Spotify
+  become: yes
+  become_user: aur_builder
+  kewlfft.aur.aur:
+    name: spotify
+    use: yay
+    state: present
+  tags: [aur, apps]
+
+- name: Ensure 1Password
+  become: yes
+  become_user: aur_builder
+  kewlfft.aur.aur:
+    name: 1password
+    use: yay
+    state: present
+  tags: [aur, apps]
+
+- name: Ensure Slack
+  become: yes
+  become_user: aur_builder
+  kewlfft.aur.aur:
+    name: slack-desktop
+    use: yay
+    state: present
+  tags: [aur, apps]
