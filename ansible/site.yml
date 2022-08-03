@@ -5,3 +5,4 @@
   roles:
     - role: arch_linux
     - role: docker
+    - role: jellyfin

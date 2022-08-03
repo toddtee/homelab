@@ -1,0 +1,4 @@
+---
+- tags: jellyfin 
+  block:
+  - include_tasks: jellyfin.yml

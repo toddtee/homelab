@@ -1,0 +1,12 @@
+version: "3.5"
+services:
+  jellyfin:
+    image: {{ image }}:{{ tag }}
+    container_name: jellyfin
+    user: {{ jellyfin_uid }}:{{ jellyfin_gid }}
+    network_mode: "host"
+    volumes:
+      - {{ jellyfin_config }}:/config
+      - {{ jellyfin_cache }}:/config
+      - {{ jellyfin_data }}:/media
+    restart: "unless-stopped"

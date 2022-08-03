@@ -1,0 +1,14 @@
+---
+image: jellyfin/jellyfin
+tag: 10.8.3
+
+jellyfin_user: jellyfin
+jellyfin_uid: 700
+jellyfin_group: jellyfin
+jellyfin_gid: 701
+
+docker_compose_location: /home/{{ jellyfin_user }} 
+jellyfin_cache: /home/{{ jellyfin_user }}/.cache/jellyfin
+jellyfin_config: /home/{{ jellyfin_user }}/.config/jellyfin
+jellyfin_data: /home/{{ jellyfin_user }}/.local/share/jellyfin
+

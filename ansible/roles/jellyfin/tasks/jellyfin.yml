@@ -1,0 +1,39 @@
+---
+- name: Ensure the {{ jellyfin_group }} group exists
+  ansible.builtin.group:
+    name: "{{ jellyfin_group }}"
+    state: present
+    gid: "{{ jellyfin_gid }}"
+
+- name: Ensure the {{ jellyfin_user }} user
+  ansible.builtin.user:
+    name: "{{ jellyfin_user }}"
+    create_home: yes
+    group: jellyfin
+    uid: "{{ jellyfin_uid }}"
+
+- name: Ensure the jellyfin cache directory
+  ansible.builtin.file:
+    path: "{{ jellyfin_cache }}"
+    state: directory
+    mode: '0755'
+
+- name: Ensure the jellyfin config directory
+  ansible.builtin.file:
+    path: "{{ jellyfin_config }}"
+    state: directory
+    mode: '0755'
+
+- name: Ensure the jellyfin data directory
+  ansible.builtin.file:
+    path: "{{ jellyfin_data }}"
+    state: directory
+    mode: '0755'
+
+- name: Copy jellyfin docker-compose
+  ansible.builtin.template:
+    src: ../jellyfin/docker-compose.yml
+    dest: "{{ docker_compose_location }}"
+    owner: "{{ jellyfin_user }}"
+    group: "{{ jellyfin_group }}" 
+    mode: '0755'
