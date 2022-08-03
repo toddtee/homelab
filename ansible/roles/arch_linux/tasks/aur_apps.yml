@@ -6,7 +6,6 @@
     name: spotify
     use: yay
     state: present
-  tags: [aur, apps]
 
 - name: Ensure 1Password
   become: yes
@@ -15,7 +14,6 @@
     name: 1password
     use: yay
     state: present
-  tags: [aur, apps]
 
 - name: Ensure Slack
   become: yes
@@ -24,4 +22,3 @@
     name: slack-desktop
     use: yay
     state: present
-  tags: [aur, apps]

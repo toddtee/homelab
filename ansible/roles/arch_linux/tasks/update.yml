@@ -3,10 +3,8 @@
   become: yes
   community.general.pacman:
     update_cache: yes
-  tags: arch, update
 
 - name: Upgrade native packages "pacman -Su"
   become: yes
   community.general.pacman:
     upgrade: yes
-  tags: arch, update

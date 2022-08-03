@@ -4,5 +4,4 @@
     upgrade: yes
     use: yay
     aur_only: yes
-  tags: [aur]
     

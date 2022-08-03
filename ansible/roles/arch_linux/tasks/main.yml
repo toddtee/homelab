@@ -1,11 +1,12 @@
 ---
-- include_tasks: aur_apps.yml
-  tags: [aur, apps, provision]
-- include_tasks: docker.yml
-  tags: [docker]
-- include_tasks: setup_aur.yml
-  tags: [aur, provision]
-- include_tasks: update.yml
-  tags: [arch, update]
-- include_tasks: update_aur.yml
-  tags: [aur, update]
+- tags: [arch]
+  block:
+  - tags: [aur]
+    block:
+    - include_tasks: aur_apps.yml
+    - include_tasks: setup_aur.yml
+    - include_tasks: update_aur.yml
+  - include_tasks: docker.yml
+    tags: [arch_docker]
+  - include_tasks: update.yml
+    tags: [update]
