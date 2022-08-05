@@ -4,11 +4,6 @@
       - docker
       - docker-compose
 
-- name: Tear down existing services
-  community.docker.docker_compose:
-    project_src: "{{ docker_compose_location }}"
-    state: absent
-
 - name: Create and start services
   community.docker.docker_compose:
     project_src: "{{ docker_compose_location }}"
@@ -25,7 +20,3 @@
 
 - ansible.builtin.debug:
     var: output
-
-- ansible.builtin.assert:
-    that:
-      - "jellyfin.state.running"
