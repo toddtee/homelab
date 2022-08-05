@@ -1,0 +1,31 @@
+- name: Install docker and docker-compose python modules
+  ansible.builtin.pip:
+    name: 
+      - docker
+      - docker-compose
+
+- name: Tear down existing services
+  community.docker.docker_compose:
+    project_src: "{{ docker_compose_location }}"
+    state: absent
+
+- name: Create and start services
+  community.docker.docker_compose:
+    project_src: "{{ docker_compose_location }}"
+  register: output
+
+- ansible.builtin.debug:
+    var: output
+
+- name: Run `docker-compose up` again
+  community.docker.docker_compose:
+    project_src: "{{ docker_compose_location }}"
+    build: no
+  register: output
+
+- ansible.builtin.debug:
+    var: output
+
+- ansible.builtin.assert:
+    that:
+      - "jellyfin.state.running"

@@ -9,7 +9,9 @@
   ansible.builtin.user:
     name: "{{ jellyfin_user }}"
     create_home: yes
-    group: jellyfin
+    groups:
+      - jellyfin
+      - docker
     uid: "{{ jellyfin_uid }}"
 
 - name: Ensure the jellyfin cache directory
