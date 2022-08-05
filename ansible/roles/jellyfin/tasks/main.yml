@@ -2,4 +2,5 @@
 - tags: jellyfin 
   block:
   - include_tasks: jellyfin.yml
+  - include_tasks: firewalld.yml
   - include_tasks: docker_compose.yml

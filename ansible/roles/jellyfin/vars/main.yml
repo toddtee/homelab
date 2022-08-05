@@ -7,8 +7,12 @@ jellyfin_uid: 700
 jellyfin_group: jellyfin
 jellyfin_gid: 701
 
+jellyfin_http_port: 8096
+jellyfin_https_port: 8920
+jellyfin_protocol: tcp
+jellyfin_firewall_zone: public
+
 docker_compose_location: /home/{{ jellyfin_user }} 
 jellyfin_cache: /home/{{ jellyfin_user }}/.cache/jellyfin
 jellyfin_config: /home/{{ jellyfin_user }}/.config/jellyfin
 jellyfin_data: /home/{{ jellyfin_user }}/.local/share/jellyfin
-

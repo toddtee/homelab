@@ -9,6 +9,6 @@ services:
       - {{ jellyfin_cache }}:/cache
       - {{ jellyfin_data }}:/media
     ports:
-      - 8096:8096
-      - 8920:8920
+      - {{ jellyfin_http_port}}:{{jellyfin_http_port}}
+      - {{ jellyfin_https_port}}:{{jellyfin_https_port}}
     restart: "unless-stopped"
