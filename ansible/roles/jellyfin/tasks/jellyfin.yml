@@ -18,18 +18,24 @@
   ansible.builtin.file:
     path: "{{ jellyfin_cache }}"
     state: directory
+    owner: "{{ jellyfin_user }}"
+    group: "{{ jellyfin_group }}"
     mode: '0755'
 
 - name: Ensure the jellyfin config directory
   ansible.builtin.file:
     path: "{{ jellyfin_config }}"
     state: directory
+    owner: "{{ jellyfin_user }}"
+    group: "{{ jellyfin_group }}"
     mode: '0755'
 
 - name: Ensure the jellyfin data directory
   ansible.builtin.file:
     path: "{{ jellyfin_data }}"
     state: directory
+    owner: "{{ jellyfin_user }}"
+    group: "{{ jellyfin_group }}"
     mode: '0755'
 
 - name: Copy jellyfin docker-compose
