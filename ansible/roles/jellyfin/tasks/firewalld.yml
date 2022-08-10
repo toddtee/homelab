@@ -6,9 +6,16 @@
     permanent: yes
     state: enabled
 
-- name: Ensure jellyfin https port is open 
+- name: Ensure http port is open 
   ansible.posix.firewalld:
     zone: "{{ jellyfin_firewall_zone}}"
-    port: "{{ jellyfin_https_port }}/{{ jellyfin_protocol }}"
+    port: 80/tcp
+    permanent: yes
+    state: enabled
+
+- name: Ensure https port is open 
+  ansible.posix.firewalld:
+    zone: "{{ jellyfin_firewall_zone}}"
+    port: 443/tcp
     permanent: yes
     state: enabled
