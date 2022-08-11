@@ -40,7 +40,7 @@
 
 - name: Copy jellyfin docker-compose
   ansible.builtin.template:
-    src: ../jellyfin/docker-compose.yml
+    src: ../files/docker-compose.yml
     dest: "{{ docker_compose_location }}"
     owner: "{{ jellyfin_user }}"
     group: "{{ jellyfin_group }}" 
