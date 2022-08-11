@@ -1,0 +1,19 @@
+---
+- name: Install Caddy
+  community.general.pacman:
+    name: caddy
+    state: latest
+
+- name: Copy Caddyfile
+  ansible.builtin.template:
+    src: ../files/Caddyfile
+    dest: "{{ caddyfile_location }}"
+    owner: "{{ caddy_user }}"
+    group: "{{ caddy_group"
+    mode: '0755'
+
+- name: Ensure caddy is enabled and running
+  ansible.builtin.systemd:
+    name: caddy
+    state: started
+    enabled: yes

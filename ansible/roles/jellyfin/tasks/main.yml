@@ -4,3 +4,4 @@
   - include_tasks: jellyfin.yml
   - include_tasks: firewalld.yml
   - include_tasks: docker_compose.yml
+  - include_tasks: caddy.yml

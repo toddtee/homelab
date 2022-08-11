@@ -1,4 +1,5 @@
 ---
+domain: tv.toddtee.sh
 image: jellyfin/jellyfin
 tag: 10.8.3
 
@@ -16,3 +17,7 @@ docker_compose_location: /home/{{ jellyfin_user }}
 jellyfin_cache: /home/{{ jellyfin_user }}/.cache/jellyfin
 jellyfin_config: /home/{{ jellyfin_user }}/.config/jellyfin
 jellyfin_data: /home/{{ jellyfin_user }}/.local/share/jellyfin
+
+caddyfile_location: /etc/caddy/Caddyfile
+caddy_user: caddy
+caddy_group: caddy
